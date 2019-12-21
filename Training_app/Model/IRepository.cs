@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Training_app.Model.Entity;
 
 namespace Training_app.Model

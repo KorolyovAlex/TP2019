@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Training_app.Model;
+﻿using Training_app.Model;
 using Ninject;
 
 namespace Training_app.Presenter
