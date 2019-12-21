@@ -1,35 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Training_app.Model.Entity;
+using Training_app.Presenter;
 
-namespace Training_app
+namespace Training_app.Views
 {
-    public partial class PatientInfoForm : Form
+    public partial class PatientInfoView : Form, IPatientInfoView
     {
-        private Patient patient;
-        public int y = 7;
+        public int PatientId { get; set; }
 
-        public PatientInfoForm(Patient patient)
+        public event Action AddExamination;
+        public event Action <int, int> ShowExamination;
+
+        public PatientInfoView()
         {
             InitializeComponent();
-            this.patient = patient;
+        }
 
+        public void UpdateInfo(Patient patient)
+        {
             StringBuilder name = new StringBuilder();
-            patientName.Text = name.Append(patient.Surname).Append(" ").Append(patient.Name).Append(" ").Append(patient.Fathername).ToString();
+            patientName.Text = name.Append(patient.Surname).Append(" ").Append(patient.Name).Append(" ").Append(patient.Batyaname).ToString();
             patientAge.Text = patient.Age.ToString();
             patientSex.Text = patient.Sex;
         }
 
-        private void addExamination_Click(object sender, EventArgs e)
+        private void AddExamination_Click(object sender, EventArgs e)
         {
-            NewExaminationForm newForm = new NewExaminationForm(this, patient);
-            newForm.Show();
+            AddExamination?.Invoke();
         }
 
         public void ButtonOnClick(object sender, EventArgs eventArgs)
@@ -37,15 +38,17 @@ namespace Training_app
             var button = (Button)sender;
             if (button != null)
             {
-                ExaminationForm newForm1 = new ExaminationForm(patient.ExaminationsList[int.Parse(button.Tag.ToString())]);
-                newForm1.Show();
+                ShowExamination?.Invoke(PatientId, int.Parse(button.Tag.ToString()));
             }
         }
 
-        private void PatientInfoForm_Load(object sender, EventArgs e)
+        public void UpdateExamination(IEnumerable<Examination> examination)
         {
+            examPanel.Controls.Clear();
+
             int i = 0;
-            foreach (Examination exam in patient.ExaminationsList)
+            int y = 7;
+            foreach (Examination exam in examination)
             {
                 Button button = new Button();
                 button.Tag = i++;

@@ -1,6 +1,6 @@
-﻿namespace Training_app
+﻿namespace Training_app.Views
 {
-    partial class MainForm
+    partial class PatientView
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PatientView));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.patientPanel = new System.Windows.Forms.Panel();
@@ -52,7 +52,7 @@
             this.addToolStripMenuItem.ShortcutKeyDisplayString = "";
             this.addToolStripMenuItem.Size = new System.Drawing.Size(105, 20);
             this.addToolStripMenuItem.Text = "Новый пациент";
-            this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
+            this.addToolStripMenuItem.Click += new System.EventHandler(this.AddToolStripMenuItem_Click);
             // 
             // patientPanel
             // 

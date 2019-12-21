@@ -1,6 +1,6 @@
-﻿namespace Training_app
+﻿namespace Training_app.Views
 {
-    partial class NewExaminationForm
+    partial class AddExaminationView
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewExaminationForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddExaminationView));
             this.dateLabel = new System.Windows.Forms.Label();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.exerciseBox = new System.Windows.Forms.GroupBox();
@@ -208,7 +208,7 @@
             this.addButton.TabIndex = 5;
             this.addButton.Text = "Создать";
             this.addButton.UseVisualStyleBackColor = true;
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            this.addButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // cancelButton
             // 
@@ -219,7 +219,7 @@
             this.cancelButton.TabIndex = 6;
             this.cancelButton.Text = "Отмена";
             this.cancelButton.UseVisualStyleBackColor = true;
-            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // durationLabel
             // 
@@ -240,11 +240,21 @@
             0,
             0,
             0});
+            this.exerciseDuration.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
             this.exerciseDuration.Name = "exerciseDuration";
             this.exerciseDuration.Size = new System.Drawing.Size(63, 20);
             this.exerciseDuration.TabIndex = 8;
+            this.exerciseDuration.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
             // 
-            // NewExaminationForm
+            // AddExaminationView
             // 
             this.AcceptButton = this.addButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -261,7 +271,7 @@
             this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.dateLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "NewExaminationForm";
+            this.Name = "AddExaminationView";
             this.Text = "Новое обследование";
             this.exerciseBox.ResumeLayout(false);
             this.exerciseBox.PerformLayout();

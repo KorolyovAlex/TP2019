@@ -1,6 +1,6 @@
-﻿namespace Training_app
+﻿namespace Training_app.Views
 {
-    partial class ExaminationForm
+    partial class ExaminationView
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExaminationForm));
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExaminationView));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.startButton = new System.Windows.Forms.ToolStripMenuItem();
             this.activateButton = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,6 +40,12 @@
             this.EC_Ind = new System.Windows.Forms.Label();
             this.SM_Ind = new System.Windows.Forms.Label();
             this.ST_Ind = new System.Windows.Forms.Label();
+            this.arterialPressureGraph = new ZedGraph.ZedGraphControl();
+            this.skinTemperatureGraph = new ZedGraph.ZedGraphControl();
+            this.skinMoistureGraph = new ZedGraph.ZedGraphControl();
+            this.skinConductivityGraph = new ZedGraph.ZedGraphControl();
+            this.pulseGraph = new ZedGraph.ZedGraphControl();
+            this.endMessage = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,7 +57,7 @@
             this.activateButton});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(384, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1308, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -59,14 +66,14 @@
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(139, 20);
             this.startButton.Text = "Начать обследование";
-            this.startButton.Click += new System.EventHandler(this.startButton_Click);
+            this.startButton.Click += new System.EventHandler(this.StartButton_Click);
             // 
             // activateButton
             // 
             this.activateButton.Name = "activateButton";
             this.activateButton.Size = new System.Drawing.Size(142, 20);
             this.activateButton.Text = "Активировать датчики";
-            this.activateButton.Click += new System.EventHandler(this.activateButton_Click);
+            this.activateButton.Click += new System.EventHandler(this.ActivateButton_Click);
             // 
             // dateLabel
             // 
@@ -97,7 +104,7 @@
             this.BP_Ind.BackColor = System.Drawing.Color.Red;
             this.BP_Ind.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.BP_Ind.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.BP_Ind.Location = new System.Drawing.Point(311, 114);
+            this.BP_Ind.Location = new System.Drawing.Point(325, 112);
             this.BP_Ind.Name = "BP_Ind";
             this.BP_Ind.Size = new System.Drawing.Size(46, 20);
             this.BP_Ind.TabIndex = 3;
@@ -109,7 +116,7 @@
             this.Pulse_Ind.BackColor = System.Drawing.Color.Red;
             this.Pulse_Ind.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.Pulse_Ind.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.Pulse_Ind.Location = new System.Drawing.Point(260, 31);
+            this.Pulse_Ind.Location = new System.Drawing.Point(288, 34);
             this.Pulse_Ind.Name = "Pulse_Ind";
             this.Pulse_Ind.Size = new System.Drawing.Size(46, 20);
             this.Pulse_Ind.TabIndex = 4;
@@ -133,7 +140,7 @@
             this.SM_Ind.BackColor = System.Drawing.Color.Red;
             this.SM_Ind.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.SM_Ind.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.SM_Ind.Location = new System.Drawing.Point(275, 368);
+            this.SM_Ind.Location = new System.Drawing.Point(297, 384);
             this.SM_Ind.Name = "SM_Ind";
             this.SM_Ind.Size = new System.Drawing.Size(50, 20);
             this.SM_Ind.TabIndex = 6;
@@ -145,20 +152,111 @@
             this.ST_Ind.BackColor = System.Drawing.Color.Red;
             this.ST_Ind.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.ST_Ind.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.ST_Ind.Location = new System.Drawing.Point(15, 321);
+            this.ST_Ind.Location = new System.Drawing.Point(12, 334);
             this.ST_Ind.Name = "ST_Ind";
             this.ST_Ind.Size = new System.Drawing.Size(46, 20);
             this.ST_Ind.TabIndex = 7;
             this.ST_Ind.Text = "       0";
             // 
-            // ExaminationForm
+            // arterialPressureGraph
+            // 
+            this.arterialPressureGraph.Location = new System.Drawing.Point(400, 28);
+            this.arterialPressureGraph.Name = "arterialPressureGraph";
+            this.arterialPressureGraph.ScrollGrace = 0D;
+            this.arterialPressureGraph.ScrollMaxX = 0D;
+            this.arterialPressureGraph.ScrollMaxY = 0D;
+            this.arterialPressureGraph.ScrollMaxY2 = 0D;
+            this.arterialPressureGraph.ScrollMinX = 0D;
+            this.arterialPressureGraph.ScrollMinY = 0D;
+            this.arterialPressureGraph.ScrollMinY2 = 0D;
+            this.arterialPressureGraph.Size = new System.Drawing.Size(450, 230);
+            this.arterialPressureGraph.TabIndex = 8;
+            this.arterialPressureGraph.UseExtendedPrintDialog = true;
+            // 
+            // skinTemperatureGraph
+            // 
+            this.skinTemperatureGraph.Location = new System.Drawing.Point(857, 28);
+            this.skinTemperatureGraph.Name = "skinTemperatureGraph";
+            this.skinTemperatureGraph.ScrollGrace = 0D;
+            this.skinTemperatureGraph.ScrollMaxX = 0D;
+            this.skinTemperatureGraph.ScrollMaxY = 0D;
+            this.skinTemperatureGraph.ScrollMaxY2 = 0D;
+            this.skinTemperatureGraph.ScrollMinX = 0D;
+            this.skinTemperatureGraph.ScrollMinY = 0D;
+            this.skinTemperatureGraph.ScrollMinY2 = 0D;
+            this.skinTemperatureGraph.Size = new System.Drawing.Size(450, 230);
+            this.skinTemperatureGraph.TabIndex = 9;
+            this.skinTemperatureGraph.UseExtendedPrintDialog = true;
+            // 
+            // skinMoistureGraph
+            // 
+            this.skinMoistureGraph.Location = new System.Drawing.Point(400, 265);
+            this.skinMoistureGraph.Name = "skinMoistureGraph";
+            this.skinMoistureGraph.ScrollGrace = 0D;
+            this.skinMoistureGraph.ScrollMaxX = 0D;
+            this.skinMoistureGraph.ScrollMaxY = 0D;
+            this.skinMoistureGraph.ScrollMaxY2 = 0D;
+            this.skinMoistureGraph.ScrollMinX = 0D;
+            this.skinMoistureGraph.ScrollMinY = 0D;
+            this.skinMoistureGraph.ScrollMinY2 = 0D;
+            this.skinMoistureGraph.Size = new System.Drawing.Size(450, 230);
+            this.skinMoistureGraph.TabIndex = 10;
+            this.skinMoistureGraph.UseExtendedPrintDialog = true;
+            // 
+            // skinConductivityGraph
+            // 
+            this.skinConductivityGraph.Location = new System.Drawing.Point(857, 265);
+            this.skinConductivityGraph.Name = "skinConductivityGraph";
+            this.skinConductivityGraph.ScrollGrace = 0D;
+            this.skinConductivityGraph.ScrollMaxX = 0D;
+            this.skinConductivityGraph.ScrollMaxY = 0D;
+            this.skinConductivityGraph.ScrollMaxY2 = 0D;
+            this.skinConductivityGraph.ScrollMinX = 0D;
+            this.skinConductivityGraph.ScrollMinY = 0D;
+            this.skinConductivityGraph.ScrollMinY2 = 0D;
+            this.skinConductivityGraph.Size = new System.Drawing.Size(450, 230);
+            this.skinConductivityGraph.TabIndex = 11;
+            this.skinConductivityGraph.UseExtendedPrintDialog = true;
+            // 
+            // pulseGraph
+            // 
+            this.pulseGraph.Location = new System.Drawing.Point(400, 501);
+            this.pulseGraph.Name = "pulseGraph";
+            this.pulseGraph.ScrollGrace = 0D;
+            this.pulseGraph.ScrollMaxX = 0D;
+            this.pulseGraph.ScrollMaxY = 0D;
+            this.pulseGraph.ScrollMaxY2 = 0D;
+            this.pulseGraph.ScrollMinX = 0D;
+            this.pulseGraph.ScrollMinY = 0D;
+            this.pulseGraph.ScrollMinY2 = 0D;
+            this.pulseGraph.Size = new System.Drawing.Size(450, 230);
+            this.pulseGraph.TabIndex = 12;
+            this.pulseGraph.UseExtendedPrintDialog = true;
+            // 
+            // endMessage
+            // 
+            this.endMessage.AutoSize = true;
+            this.endMessage.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.endMessage.ForeColor = System.Drawing.Color.Yellow;
+            this.endMessage.Location = new System.Drawing.Point(12, 616);
+            this.endMessage.Name = "endMessage";
+            this.endMessage.Size = new System.Drawing.Size(0, 21);
+            this.endMessage.TabIndex = 13;
+            // 
+            // ExaminationView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(384, 512);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientSize = new System.Drawing.Size(1308, 730);
+            this.Controls.Add(this.endMessage);
+            this.Controls.Add(this.pulseGraph);
+            this.Controls.Add(this.skinConductivityGraph);
+            this.Controls.Add(this.skinMoistureGraph);
+            this.Controls.Add(this.skinTemperatureGraph);
+            this.Controls.Add(this.arterialPressureGraph);
             this.Controls.Add(this.ST_Ind);
             this.Controls.Add(this.SM_Ind);
             this.Controls.Add(this.EC_Ind);
@@ -169,7 +267,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "ExaminationForm";
+            this.Name = "ExaminationView";
             this.Text = "Обследование";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -190,5 +288,11 @@
         private System.Windows.Forms.Label EC_Ind;
         private System.Windows.Forms.Label SM_Ind;
         private System.Windows.Forms.Label ST_Ind;
+        private ZedGraph.ZedGraphControl arterialPressureGraph;
+        private ZedGraph.ZedGraphControl skinTemperatureGraph;
+        private ZedGraph.ZedGraphControl skinMoistureGraph;
+        private ZedGraph.ZedGraphControl skinConductivityGraph;
+        private ZedGraph.ZedGraphControl pulseGraph;
+        private System.Windows.Forms.Label endMessage;
     }
 }

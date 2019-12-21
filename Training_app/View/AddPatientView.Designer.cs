@@ -1,6 +1,6 @@
-﻿namespace Training_app
+﻿namespace Training_app.Views
 {
-    partial class NewPatientForm
+    partial class AddPatientView
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewPatientForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddPatientView));
             this.nameLabel1 = new System.Windows.Forms.Label();
             this.nameLabel2 = new System.Windows.Forms.Label();
             this.nameLabel3 = new System.Windows.Forms.Label();
@@ -80,7 +80,7 @@
             // 
             // nameBox1
             // 
-            this.nameBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.nameBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nameBox1.Location = new System.Drawing.Point(139, 33);
             this.nameBox1.MaxLength = 30;
@@ -90,8 +90,8 @@
             // 
             // nameBox2
             // 
-            this.nameBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.nameBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nameBox2.Location = new System.Drawing.Point(139, 77);
             this.nameBox2.Name = "nameBox2";
@@ -100,7 +100,7 @@
             // 
             // nameBox3
             // 
-            this.nameBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.nameBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nameBox3.Location = new System.Drawing.Point(139, 120);
             this.nameBox3.Name = "nameBox3";
@@ -165,7 +165,7 @@
             this.addButton.TabIndex = 11;
             this.addButton.Text = "Добавить";
             this.addButton.UseVisualStyleBackColor = false;
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            this.addButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // cancelButton
             // 
@@ -177,7 +177,7 @@
             this.cancelButton.TabIndex = 12;
             this.cancelButton.Text = "Отмена";
             this.cancelButton.UseVisualStyleBackColor = true;
-            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // ageBox
             // 

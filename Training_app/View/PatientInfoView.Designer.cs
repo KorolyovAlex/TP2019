@@ -1,6 +1,6 @@
-﻿namespace Training_app
+﻿namespace Training_app.Views
 {
-    partial class PatientInfoForm
+    partial class PatientInfoView
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PatientInfoForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PatientInfoView));
             this.patientLabel = new System.Windows.Forms.Label();
             this.patientName = new System.Windows.Forms.Label();
             this.ageLabel = new System.Windows.Forms.Label();
@@ -121,7 +121,7 @@
             this.addExamination.Name = "addExamination";
             this.addExamination.Size = new System.Drawing.Size(152, 20);
             this.addExamination.Text = "Добавить обследование";
-            this.addExamination.Click += new System.EventHandler(this.addExamination_Click);
+            this.addExamination.Click += new System.EventHandler(this.AddExamination_Click);
             // 
             // examPanel
             // 
@@ -161,7 +161,6 @@
             this.Name = "PatientInfoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Пациент";
-            this.Load += new System.EventHandler(this.PatientInfoForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
